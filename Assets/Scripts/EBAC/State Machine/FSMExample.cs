@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Ebac.StateMachine;
 public class FSMExample : MonoBehaviour
 {
     public enum ExampleEnum
@@ -20,5 +20,6 @@ public class FSMExample : MonoBehaviour
         stateMachine.RegisteredStates(ExampleEnum.STATE_TWO, new StateBase());
         stateMachine.RegisteredStates(ExampleEnum.STATE_THREE, new StateBase());
 
+        
     }
 }

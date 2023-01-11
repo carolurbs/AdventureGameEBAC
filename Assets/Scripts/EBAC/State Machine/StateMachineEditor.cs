@@ -13,6 +13,7 @@ public class StateMachineEditor : Editor
     {
         base.OnInspectorGUI();
         FSMExample fsmExample = (FSMExample)target;
+        EditorGUILayout.Space(30);
         EditorGUILayout.LabelField("State Machine");
         if (fsmExample.stateMachine == null) return;
         if (fsmExample.stateMachine.CurrentState !=null)
@@ -24,7 +25,7 @@ public class StateMachineEditor : Editor
             {
 
             var keys =fsmExample.stateMachine.dictionaryState.Keys.ToArray();
-            var vals = fsmExample.stateMachine.dictionaryState.Keys.ToArray();
+            var vals = fsmExample.stateMachine.dictionaryState.Values.ToArray();
             for (int i = 0; i < keys.Length; i++)
             {
                 EditorGUILayout.LabelField(string.Format("{0}::{1}", keys [i], vals[i]));  
