@@ -8,8 +8,12 @@ public class Player :Singleton<Player>
 {
    public enum PlayerState
     {
+        IDLE,
         WALKING,
-        IDLE
+        RUNNING,
+        JUMPING,
+        SHOOTING,
+        DEAD
     }
 
     public StateMachine<PlayerState> stateMachine;
@@ -21,8 +25,12 @@ public class Player :Singleton<Player>
     {
         stateMachine = new StateMachine<PlayerState>();
         stateMachine.Init();
-        stateMachine.RegisteredStates(PlayerState.WALKING,new PSWalking());
-        stateMachine.RegisteredStates(PlayerState.IDLE, new PSIdle());
+        stateMachine.RegisteredStates(PlayerState.IDLE, new PlayerStates.PS_Idle());
+        stateMachine.RegisteredStates(PlayerState.WALKING,new PlayerStates.PS_Walking());
+        stateMachine.RegisteredStates(PlayerState.RUNNING, new PlayerStates.PS_Running());
+        stateMachine.RegisteredStates(PlayerState.JUMPING, new PlayerStates.PS_Jumping());
+        stateMachine.RegisteredStates(PlayerState.SHOOTING, new PlayerStates.PS_Shooting());
+        stateMachine.RegisteredStates(PlayerState.DEAD, new PlayerStates.PS_Dead());
 
         stateMachine.SwitchState(PlayerState.IDLE);
         
