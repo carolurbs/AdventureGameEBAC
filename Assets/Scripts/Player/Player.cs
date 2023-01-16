@@ -6,6 +6,7 @@ using Ebac.StateMachine;
 
 public class Player :Singleton<Player>
 {
+
     public Animator animator;
     public CharacterController characterController;
     public float speed =1f;
@@ -66,8 +67,6 @@ public class Player :Singleton<Player>
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 vSpeed = jumpSpeed;
-                animator.SetBool("Jump", !characterController.isGrounded);
-
             }
         }
         var isWalking = inputAxisVertical != 0;
