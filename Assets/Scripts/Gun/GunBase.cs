@@ -10,7 +10,7 @@ public class GunBase : MonoBehaviour
     public float timeBetweenShoot = .3f;
     private Coroutine _currentCoroutine;
 
-    IEnumerator ShoorCoroutine()
+    protected virtual IEnumerator ShootCoroutine()
     {
         while(true)
         {
@@ -27,7 +27,7 @@ public class GunBase : MonoBehaviour
     public void StartShoot()
     {
         StopShoot();    
-        _currentCoroutine = StartCoroutine(ShoorCoroutine());
+        _currentCoroutine = StartCoroutine(ShootCoroutine());
 
     }
     public void StopShoot()

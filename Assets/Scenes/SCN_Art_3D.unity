@@ -2400,6 +2400,7 @@ GameObject:
   - component: {fileID: 554641615}
   - component: {fileID: 554641614}
   - component: {fileID: 554641616}
+  - component: {fileID: 554641617}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2462,6 +2463,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!114 &554641617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554641613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594de35682ad0904c9b0c1b90a3998e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunBase: {fileID: 1820847244}
 --- !u!1001 &555235760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8996,12 +9010,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1820847243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3121e05c0ae8e404cb173ac72731ed85, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e4edb4d016c8d7448939a41e72355a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefabProjectille: {fileID: 4404241595849344054, guid: 39bd20abf2537c3428a8029ec18e23ef, type: 3}
   positionToShoot: {fileID: 992499815}
   timeBetweenShoot: 0.3
+  maxShoot: 5
+  timeToRecharge: 1
+  _recharging: 0
 --- !u!65 &1820847245
 BoxCollider:
   m_ObjectHideFlags: 0
