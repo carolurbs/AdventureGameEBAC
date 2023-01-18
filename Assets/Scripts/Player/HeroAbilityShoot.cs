@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class HeroAbilityShoot : PlayerAbilityBase
 {
+
     public GunBase gunBase;
     public Transform gunPosition;
 
