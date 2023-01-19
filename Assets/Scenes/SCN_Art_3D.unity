@@ -2632,7 +2632,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594de35682ad0904c9b0c1b90a3998e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunBase: {fileID: 5887963822767527786, guid: 7ef01079f29af5b469e566ed209e357f, type: 3}
+  gunOne: {fileID: 5887963822767527786, guid: 7ef01079f29af5b469e566ed209e357f, type: 3}
+  gunTwo: {fileID: 3468434392348047652, guid: b5b90cad8625b2c49a0063514d0fecf0, type: 3}
   gunPosition: {fileID: 1641998657}
 --- !u!1001 &555235760
 PrefabInstance:
@@ -7350,7 +7351,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
-  m_LocalRotation: {x: 0.11315655, y: 0.000000016578044, z: -0.000000001888041, w: 0.9935772}
+  m_LocalRotation: {x: 0.11315653, y: -0.00000001815577, z: 0.0000000020677247, w: 0.9935772}
   m_LocalPosition: {x: 409.41, y: -2.81, z: 35.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -10401,7 +10402,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032043501}
-  m_LocalRotation: {x: 0.11315655, y: 0.000000016578044, z: -0.000000001888041, w: 0.9935772}
+  m_LocalRotation: {x: 0.11315653, y: -0.00000001815577, z: 0.0000000020677247, w: 0.9935772}
   m_LocalPosition: {x: 409.41, y: -2.81, z: 35.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
