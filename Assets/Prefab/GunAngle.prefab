@@ -57,8 +57,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8781772440268229658}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 409.26, y: -6.81, z: 48.37}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4867298540072825207}
@@ -139,10 +139,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911ecdfd52f928f42b4763391b41a9bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabProjectille: {fileID: 4404241595849344054, guid: 39bd20abf2537c3428a8029ec18e23ef, type: 3}
+  prefabProjectille: {fileID: 6024082013478049082, guid: bfadc7f9669d27647b29ffbd5f4d9d86, type: 3}
   positionToShoot: {fileID: 4867298540072825207}
   timeBetweenShoot: 0.3
   speed: 50
+  UIGunUpdaters: []
   maxShoot: 5
   timeToRecharge: 1
   _recharging: 0

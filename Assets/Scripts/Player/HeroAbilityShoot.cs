@@ -11,32 +11,64 @@ public class HeroAbilityShoot : PlayerAbilityBase
     public Transform gunPosition;
 
     private GunBase _currentGun;
+    private GunBase gunOneInstance;
+    private GunBase gunTwoInstance;
+   
+    private void SwitchGun(GunEquippedNumber gunNumber)
+    {
+        switch(gunNumber)
+        {
+            case GunEquippedNumber.One:
+                gunOneInstance.gameObject.SetActive(true);
+                gunTwoInstance.gameObject.SetActive(false);
+                _currentGun = gunOneInstance;
+                break;
+                case GunEquippedNumber.Two:
+                gunOneInstance.gameObject.SetActive(false);
+                gunTwoInstance.gameObject.SetActive(true);
+                _currentGun = gunTwoInstance;
+                break;
+
+                default:
+                Debug.LogError("Don't know the given gunNumber:" +gunNumber.ToString());
+                break;
+        }
+    }
     protected override void Init()
     {
         base.Init();
         CreateGunOne();
+        CreateGunTwo();
         inputs.Gameplay.Shoot.performed+=ctx=>StartShoot();
-        inputs.Gameplay.Shoot.canceled += ctx => StartShoot();
-        inputs.Gameplay.Gun1.performed += ctx => CreateGunOne();
-        inputs.Gameplay.Gun1.canceled += ctx => CreateGunOne();
-        inputs.Gameplay.Gun2.performed += ctx => CreateGunTwo();
-        inputs.Gameplay.Gun2.canceled += ctx => CreateGunTwo();
+        inputs.Gameplay.Shoot.canceled += ctx => CancelShoot();
+        inputs.Gameplay.Gun1.performed += ctx => SwitchGun(GunEquippedNumber.One);
+        inputs.Gameplay.Gun2.performed += ctx => SwitchGun(GunEquippedNumber.Two);
 
 
     }
     private void CreateGunOne()
     {
-        Destroy(gunTwo);
-        if(_currentGun!= null)_currentGun=Instantiate(gunOne, gunPosition);
-        _currentGun.transform.localPosition = _currentGun.transform.localEulerAngles = Vector3.zero;
+  
+            gunOneInstance = Instantiate(gunOne, gunPosition);
+            gunOneInstance.transform.localPosition = gunOneInstance.transform.localEulerAngles = Vector3.zero;
+        _currentGun = gunOneInstance;
+         
+
+
     }
 
     private void CreateGunTwo()
+    
     {
-        Destroy(gunOne);
-        if (_currentGun != null) _currentGun = Instantiate(gunTwo, gunPosition);
-        _currentGun.transform.localPosition = _currentGun.transform.localEulerAngles = Vector3.zero;
+     
+
+        gunTwoInstance= Instantiate(gunTwo, gunPosition);
+        gunTwoInstance.transform.localPosition = gunTwoInstance.transform.localEulerAngles = Vector3.zero;
+        _currentGun = gunTwoInstance;
+
     }
+
+ 
     private void StartShoot()
     {
         _currentGun.StartShoot();
@@ -46,7 +78,13 @@ public class HeroAbilityShoot : PlayerAbilityBase
     private void CancelShoot()
     {
       _currentGun.StopShoot();
-        Debug.Log("Cancwl Shoot");
+        Debug.Log("Cancel Shoot");
 
+    }
+
+    public enum GunEquippedNumber
+    {
+        One,
+        Two
     }
 }

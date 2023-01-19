@@ -22,7 +22,7 @@ public class PlayerAbilityBase : MonoBehaviour
 
     private void OnEnable()
     {
-        if(inputs == null)
+        if(inputs != null)
         inputs.Enable();
     }
 

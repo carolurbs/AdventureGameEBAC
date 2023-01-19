@@ -27,7 +27,6 @@ public class GunBase : MonoBehaviour
     }
     public void StartShoot()
     {
-        StopShoot();    
         _currentCoroutine = StartCoroutine(ShootCoroutine());
 
     }
