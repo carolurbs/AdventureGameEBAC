@@ -1236,6 +1236,7 @@ GameObject:
   - component: {fileID: 222777995}
   - component: {fileID: 222777994}
   - component: {fileID: 222777996}
+  - component: {fileID: 222777997}
   m_Layer: 0
   m_Name: Enemy01
   m_TagString: Untagged
@@ -1257,6 +1258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLife: 10
   _currentLife: 0
+  animationBase: {fileID: 222777997}
   startAnimationDuration: 0.2
   startAnimationEase: 27
   startwithBornAnimation: 1
@@ -1288,6 +1290,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.968445, y: 8.635704, z: 9.040039}
   m_Center: {x: -0.39883423, y: 3.81785, z: -0.96073914}
+--- !u!114 &222777997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222777993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b594800c81c9e49488380d272b22ce29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 823553184}
+  animationSetups:
+  - animationType: 1
+    trigger: Idle
+  - animationType: 2
+    trigger: Run
+  - animationType: 3
+    trigger: Attack
+  - animationType: 4
+    trigger: Death
 --- !u!1001 &226622307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2630,6 +2654,7 @@ GameObject:
   - component: {fileID: 549900458}
   - component: {fileID: 549900457}
   - component: {fileID: 549900459}
+  - component: {fileID: 549900460}
   m_Layer: 0
   m_Name: Enemy03
   m_TagString: Untagged
@@ -2651,6 +2676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLife: 10
   _currentLife: 0
+  animationBase: {fileID: 549900460}
   startAnimationDuration: 0.2
   startAnimationEase: 27
   startwithBornAnimation: 1
@@ -2682,6 +2708,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8.422791, y: 8.26106, z: 9.555771}
   m_Center: {x: -0.30038452, y: 3.6305299, z: -0.22985077}
+--- !u!114 &549900460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549900456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b594800c81c9e49488380d272b22ce29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1319347553}
+  animationSetups:
+  - animationType: 1
+    trigger: Idle
+  - animationType: 2
+    trigger: Run
+  - animationType: 3
+    trigger: Attack
+  - animationType: 4
+    trigger: Death
 --- !u!1 &554641613
 GameObject:
   m_ObjectHideFlags: 0
@@ -4038,6 +4086,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8043139984699745673, guid: 6a85956ddea0a304da62a369edd2c2fa, type: 3}
   m_PrefabInstance: {fileID: 820670938}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &823553184 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7443898874300591051, guid: 86dc2d7519f0fa047a4a9adbc81a8da7, type: 3}
+  m_PrefabInstance: {fileID: 171685267}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &824417912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4631,6 +4684,7 @@ GameObject:
   - component: {fileID: 893126286}
   - component: {fileID: 893126285}
   - component: {fileID: 893126287}
+  - component: {fileID: 893126288}
   m_Layer: 0
   m_Name: Enemy02
   m_TagString: Untagged
@@ -4652,6 +4706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLife: 10
   _currentLife: 0
+  animationBase: {fileID: 893126288}
   startAnimationDuration: 0.2
   startAnimationEase: 27
   startwithBornAnimation: 1
@@ -4683,6 +4738,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.208374, y: 8.99015, z: 8.252785}
   m_Center: {x: -0.5499878, y: 3.9950752, z: -0.24412155}
+--- !u!114 &893126288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893126284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b594800c81c9e49488380d272b22ce29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1627035891}
+  animationSetups:
+  - animationType: 1
+    trigger: Idle
+  - animationType: 2
+    trigger: Run
+  - animationType: 3
+    trigger: Attack
+  - animationType: 4
+    trigger: Death
 --- !u!1001 &897268163
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6432,6 +6509,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8043139984699745673, guid: 6a85956ddea0a304da62a369edd2c2fa, type: 3}
   m_PrefabInstance: {fileID: 1310206599}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1319347553 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6189299705896439754, guid: 18b86b2702dd1f346a6839add43ebe78, type: 3}
+  m_PrefabInstance: {fileID: 1365271113}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1324833288
 GameObject:
   m_ObjectHideFlags: 0
@@ -7555,7 +7637,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
-  m_LocalRotation: {x: 0.11315655, y: 0.000000016578044, z: -0.000000001888041, w: 0.9935772}
+  m_LocalRotation: {x: 0.11315653, y: -0.00000001815577, z: 0.0000000020677247, w: 0.9935772}
   m_LocalPosition: {x: 409.41, y: -2.81, z: 35.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -8015,6 +8097,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7703423336758522442, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
   m_PrefabInstance: {fileID: 1621905661}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1627035891 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5198380618090564724, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+  m_PrefabInstance: {fileID: 79292512}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1633535790
 GameObject:
@@ -10606,7 +10693,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032043501}
-  m_LocalRotation: {x: 0.11315655, y: 0.000000016578044, z: -0.000000001888041, w: 0.9935772}
+  m_LocalRotation: {x: 0.11315653, y: -0.00000001815577, z: 0.0000000020677247, w: 0.9935772}
   m_LocalPosition: {x: 409.41, y: -2.81, z: 35.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
