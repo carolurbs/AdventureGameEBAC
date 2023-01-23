@@ -56,6 +56,7 @@ public class EnemyBase : MonoBehaviour,IDamageable
            
             if (flashColor != null) flashColor.Flash();
             _currentLife = -f;
+            transform.position -= transform.forward;
             if(_currentLife<=0)
             {
                 Kill();
@@ -86,6 +87,11 @@ public class EnemyBase : MonoBehaviour,IDamageable
         public void Damage(float damage)
         {
             OnDamage(damage);
+        }
+        public void Damage(float damage,Vector3 dir)
+        {
+            //OnDamage(damage);
+            transform.DOMove(transform.position - dir, .1f);
         }
     }
 
