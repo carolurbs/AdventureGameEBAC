@@ -13,7 +13,7 @@ public class FlashColor : MonoBehaviour
     private Tween _currTween;
     private void Start()
     {
-        defaultColor = meshRenderer.material.GetColor("EmissionColor");
+        defaultColor = meshRenderer.material.GetColor("_EmissionColor");
     }
     [NaughtyAttributes.Button]
     public void Flash()

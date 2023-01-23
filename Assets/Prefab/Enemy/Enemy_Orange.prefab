@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1687888493072794181}
   - component: {fileID: 1687888493072794180}
   - component: {fileID: 1687888493072794183}
+  - component: {fileID: 5963014753632239833}
   m_Layer: 0
   m_Name: Enemy_Orange
   m_TagString: Untagged
@@ -102,6 +103,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &5963014753632239833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687888493072794177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4757e6cb060b6604384933b616a52659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider: {fileID: 1687888493072794178}
+  flashColor: {fileID: 1687888493072794180}
+  startLife: 10
+  _currentLife: 0
+  particleSystem: {fileID: 261462351249911545}
+  animationBase: {fileID: 1687888493072794181}
+  startAnimationDuration: 0.2
+  startAnimationEase: 27
+  startwithBornAnimation: 1
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  minDistance: 1
+  speed: 9
 --- !u!1001 &1687888492128690831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -174,6 +202,11 @@ PrefabInstance:
 --- !u!4 &2611133125387829776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3697470799812468895, guid: cbda4504f0f5c6349a80f0241d704dda, type: 3}
+  m_PrefabInstance: {fileID: 1687888492128690831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &261462351249911545 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1498699475423546486, guid: cbda4504f0f5c6349a80f0241d704dda, type: 3}
   m_PrefabInstance: {fileID: 1687888492128690831}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1687888492831731872
