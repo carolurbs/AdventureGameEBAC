@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1920592352976226124}
-  - component: {fileID: 1920592352976226127}
   - component: {fileID: 1920592352976226125}
   - component: {fileID: 1920592352976226130}
   - component: {fileID: 1920592352976226131}
   - component: {fileID: 1920592352976226128}
+  - component: {fileID: 3058381008480994011}
   m_Layer: 0
   m_Name: Enemy_Pink
   m_TagString: Untagged
@@ -37,27 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1920592352976226127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1920592352976226126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21a72f1476acb2146a072c462cc647f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collider: {fileID: 1920592352976226125}
-  flashColor: {fileID: 1920592352976226131}
-  startLife: 15
-  _currentLife: 0
-  particleSystem: {fileID: 5833642126798429098}
-  animationBase: {fileID: 1920592352976226130}
-  startAnimationDuration: 0.2
-  startAnimationEase: 27
-  startwithBornAnimation: 1
 --- !u!65 &1920592352976226125
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -119,11 +98,38 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3058381008480994011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920592352976226126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4757e6cb060b6604384933b616a52659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider: {fileID: 1920592352976226125}
+  flashColor: {fileID: 1920592352976226131}
+  startLife: 10
+  _currentLife: 0
+  particleSystem: {fileID: 5833642126798429098}
+  animationBase: {fileID: 1920592352976226130}
+  startAnimationDuration: 0.2
+  startAnimationEase: 27
+  startwithBornAnimation: 1
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  minDistance: 1
+  speed: 9
 --- !u!1001 &1920592352162818466
 PrefabInstance:
   m_ObjectHideFlags: 0

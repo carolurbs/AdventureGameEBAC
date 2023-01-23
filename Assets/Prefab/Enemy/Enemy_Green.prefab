@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6631460151732436907}
-  - component: {fileID: 6631460151732436906}
   - component: {fileID: 6631460151732436908}
   - component: {fileID: 6631460151732436909}
   - component: {fileID: 6631460151732436910}
   - component: {fileID: 6631460151732436911}
+  - component: {fileID: 5890993509441611881}
   m_Layer: 0
   m_Name: Enemy_Green
   m_TagString: Untagged
@@ -37,27 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6631460151732436906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6631460151732436905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21a72f1476acb2146a072c462cc647f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collider: {fileID: 6631460151732436908}
-  flashColor: {fileID: 6631460151732436910}
-  startLife: 10
-  _currentLife: 0
-  particleSystem: {fileID: 1187823275525657499}
-  animationBase: {fileID: 6631460151732436909}
-  startAnimationDuration: 0.2
-  startAnimationEase: 27
-  startwithBornAnimation: 1
 --- !u!65 &6631460151732436908
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -122,8 +101,35 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 110
+  m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5890993509441611881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6631460151732436905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4757e6cb060b6604384933b616a52659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider: {fileID: 6631460151732436908}
+  flashColor: {fileID: 6631460151732436910}
+  startLife: 10
+  _currentLife: 0
+  particleSystem: {fileID: 1187823275525657499}
+  animationBase: {fileID: 6631460151732436909}
+  startAnimationDuration: 0.2
+  startAnimationEase: 27
+  startwithBornAnimation: 1
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  minDistance: 1
+  speed: 9
 --- !u!1001 &6631460150982201755
 PrefabInstance:
   m_ObjectHideFlags: 0

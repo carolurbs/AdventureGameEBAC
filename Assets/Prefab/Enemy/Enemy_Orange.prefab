@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1687888493072794179}
-  - component: {fileID: 1687888493072794176}
   - component: {fileID: 1687888493072794178}
   - component: {fileID: 1687888493072794181}
   - component: {fileID: 1687888493072794180}
@@ -37,27 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1687888493072794176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1687888493072794177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21a72f1476acb2146a072c462cc647f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collider: {fileID: 1687888493072794178}
-  flashColor: {fileID: 1687888493072794180}
-  startLife: 20
-  _currentLife: 0
-  particleSystem: {fileID: 261462351249911545}
-  animationBase: {fileID: 1687888493072794181}
-  startAnimationDuration: 0.2
-  startAnimationEase: 27
-  startwithBornAnimation: 1
 --- !u!65 &1687888493072794178
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -196,11 +174,6 @@ PrefabInstance:
 --- !u!4 &2611133125387829776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3697470799812468895, guid: cbda4504f0f5c6349a80f0241d704dda, type: 3}
-  m_PrefabInstance: {fileID: 1687888492128690831}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &261462351249911545 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1498699475423546486, guid: cbda4504f0f5c6349a80f0241d704dda, type: 3}
   m_PrefabInstance: {fileID: 1687888492128690831}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1687888492831731872
