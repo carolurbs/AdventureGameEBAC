@@ -7,7 +7,7 @@ namespace Ebac.StateMachine
 
     public class StateBase
     {
-        public virtual void OnStateEnter(object o = null)
+        public virtual void OnStateEnter(params object[]objs)
         {
             Debug.Log("OnStateEnter");
         }
@@ -18,38 +18,6 @@ namespace Ebac.StateMachine
         public virtual void OnStateExit()
         {
             Debug.Log("OnStateExit");
-        }
-    }
-
-    public class StateMenu : StateBase
-    {
-        public override void OnStateEnter(object o = null)
-        {
-
-        }
-    }
-    public class StatePlaying : StateBase
-    {
-        public override void OnStateEnter(object o = null)
-        {
-        }
-
-    }
-    public class StateResetPosition : StateBase
-    {
-        public override void OnStateEnter(object o = null)
-        {
-
-        }
-
-    }
-
-
-    public class StateEndGame : StateBase
-    {
-        public override void OnStateEnter(object o = null)
-        {
-
         }
     }
 }
