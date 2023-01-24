@@ -11,17 +11,22 @@ public class EnemyBase : MonoBehaviour,IDamageable
         public  FlashColor flashColor; 
         public float startLife=10f;
         public float _currentLife;
+        public bool lookAtPlayer=false;
         public ParticleSystem particleSystem;
         [Header(" Animation")]
         [SerializeField]public AnimationBase animationBase;
         public float startAnimationDuration = .2f;
         public Ease startAnimationEase = Ease.OutBack;
         public bool startwithBornAnimation=true;
-
+        private Player _player;
         private void Awake()
         {
             if(particleSystem!=null)particleSystem.transform.SetParent(null);
          Init();
+        }
+        public void Start()
+        {
+            _player = GameObject.FindObjectOfType<Player>();
         }
         protected void ResetLife()
         {
@@ -73,17 +78,7 @@ public class EnemyBase : MonoBehaviour,IDamageable
             animationBase.PlayAnimationByTrigger(animationType);
         }
         #endregion
-        private void Update()
-        {
-            #region TESTE (ÁREA COMENTADA
-            /*  */
-            if (Input.GetKeyDown(KeyCode.T))
-              {
-                  OnDamage(10f);
-                  Debug.Log(_currentLife);
-              }
-            #endregion
-        }
+      
         public void Damage(float damage)
         {
             OnDamage(damage);
@@ -92,6 +87,24 @@ public class EnemyBase : MonoBehaviour,IDamageable
         {
             //OnDamage(damage);
             transform.DOMove(transform.position - dir, .1f);
+
+        }
+        private void OnCollisionEnter(Collision collision)
+        {
+            Player p =collision.transform.GetComponent<Player>();
+            if (p != null)
+            {
+                p.Damage(1);
+            }
+     
+        }
+
+        public virtual void Update()
+        {
+            if (lookAtPlayer)
+            {
+                transform.LookAt(_player.transform.position);
+            }
         }
     }
 
