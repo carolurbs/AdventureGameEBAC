@@ -13066,6 +13066,10 @@ PrefabInstance:
       propertyPath: prefabProjectille
       value: 
       objectReference: {fileID: 6159239547604702583, guid: ea32874e0f2517d45b62403a0ab57120, type: 3}
+    - target: {fileID: 7453009861711094663, guid: 1857be670d924b540bc04e6eccb4dc93, type: 3}
+      propertyPath: lookAtPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8353720419417483082, guid: 1857be670d924b540bc04e6eccb4dc93, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
