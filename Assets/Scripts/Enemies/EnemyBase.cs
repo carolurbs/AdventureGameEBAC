@@ -8,6 +8,7 @@ namespace Enemy
 public class EnemyBase : MonoBehaviour,IDamageable
 {
         public Collider collider;
+        public HealthBase healthBase;
         public  FlashColor flashColor; 
         public float startLife=10f;
         public float _currentLife;

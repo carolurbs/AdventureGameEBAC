@@ -1,25 +1,39 @@
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ebac.Core.Singleton;
 using Ebac.StateMachine;
 
-public class Player :Singleton<Player>, IDamageable
+public class Player : Singleton<Player>
 {
 
+    public List<FlashColor> flashColors;
+    public HealthBase healthBase;
     public Animator animator;
     public CharacterController characterController;
-    public float speed =1f;
-    public float turnSpeed =1f;
+    public float speed = 1f;
+    public float turnSpeed = 1f;
     public float gravity = -9.8f;
     public float jumpSpeed = 15f;
     public float vSpeed = 4f;
     [Header("Run Setup")]
     public KeyCode keyRun = KeyCode.LeftShift;
     public float speedRun = 40f;
-    [Header("Flash")]
-    public List<FlashColor> flashColors;
-   public enum PlayerState
+
+    public void OnValidate()
+    {
+        if (healthBase == null) healthBase = GetComponent<HealthBase>();    
+    }
+    public virtual void Awake()
+    {
+        OnValidate();
+        healthBase.OnDamage += Damage;
+    }
+
+
+    public enum PlayerState
     {
         IDLE,
         WALKING,
@@ -39,15 +53,15 @@ public class Player :Singleton<Player>, IDamageable
         stateMachine = new StateMachine<PlayerState>();
         stateMachine.Init();
         stateMachine.RegisteredStates(PlayerState.IDLE, new PlayerStates.PS_Idle());
-        stateMachine.RegisteredStates(PlayerState.WALKING,new PlayerStates.PS_Walking());
+        stateMachine.RegisteredStates(PlayerState.WALKING, new PlayerStates.PS_Walking());
         stateMachine.RegisteredStates(PlayerState.RUNNING, new PlayerStates.PS_Running());
         stateMachine.RegisteredStates(PlayerState.JUMPING, new PlayerStates.PS_Jumping());
         stateMachine.RegisteredStates(PlayerState.SHOOTING, new PlayerStates.PS_Shooting());
         stateMachine.RegisteredStates(PlayerState.DEAD, new PlayerStates.PS_Dead());
 
         stateMachine.SwitchState(PlayerState.IDLE);
-        
-        
+
+
     }
     public void InitGame()
     {
@@ -56,25 +70,25 @@ public class Player :Singleton<Player>, IDamageable
 
     private void Update()
     {
-       
-        
-            transform.Rotate(0, Input.GetAxis("Horizontal") *turnSpeed * Time.deltaTime, 0);
 
-            var inputAxisVertical = Input.GetAxis("Vertical");
-            var speedVector = transform.forward * Input.GetAxis("Vertical") * speed;
 
-            if(characterController.isGrounded)
-              {
+        transform.Rotate(0, Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime, 0);
+
+        var inputAxisVertical = Input.GetAxis("Vertical");
+        var speedVector = transform.forward * Input.GetAxis("Vertical") * speed;
+
+        if (characterController.isGrounded)
+        {
             vSpeed = 0;
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 vSpeed = jumpSpeed;
             }
         }
         var isWalking = inputAxisVertical != 0;
-        if(isWalking)
+        if (isWalking)
         {
-            if(Input.GetKey(keyRun))
+            if (Input.GetKey(keyRun))
             {
                 speedVector *= speedRun;
                 animator.speed = speedRun;
@@ -85,23 +99,17 @@ public class Player :Singleton<Player>, IDamageable
 
             }
         }
-            vSpeed -= gravity * Time.deltaTime;
-            speedVector.y = vSpeed;
-            characterController.Move(speedVector*Time.deltaTime);
+        vSpeed -= gravity * Time.deltaTime;
+        speedVector.y = vSpeed;
+        characterController.Move(speedVector * Time.deltaTime);
 
-            animator.SetBool("Run", isWalking);
+        animator.SetBool("Run", isWalking);
     }
-    #region LIFE
-    public void Damage(float damage)
+    public void Damage (HealthBase h)
     {
         flashColors.ForEach(i => i.Flash());
-    }
 
-    public void Damage(float damage, Vector3 dir)
-    {
-        Damage(damage);
     }
-    #endregion
 }
 namespace PlayerStates
 {

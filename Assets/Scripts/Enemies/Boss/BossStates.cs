@@ -55,10 +55,12 @@ public class BossStateInit: BossStates
     }
     public class BossStateDeath : BossStates
     {
+
         public override void OnStateEnter(params object[] objs)
         {
             base.OnStateEnter(objs);
             boss.transform.localScale = Vector3.one*.2f;
+            boss.OnDeath();
         }
     }
 
