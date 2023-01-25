@@ -1096,7 +1096,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155805420}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1474,7 +1474,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200332472}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -13355,6 +13355,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5615292329151919422, guid: da9a7675f8d867e4ea67b6652a79af4b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 110d7025056f5d643b1b4edf47d889b9, type: 2}
+    - target: {fileID: 7031856638297895383, guid: da9a7675f8d867e4ea67b6652a79af4b, type: 3}
+      propertyPath: healthBase
+      value: 
+      objectReference: {fileID: 4532845359041303760}
     - target: {fileID: 7031856638297895383, guid: da9a7675f8d867e4ea67b6652a79af4b, type: 3}
       propertyPath: waypoints.Array.size
       value: 3
@@ -13373,6 +13381,26 @@ PrefabInstance:
       objectReference: {fileID: 155805421}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da9a7675f8d867e4ea67b6652a79af4b, type: 3}
+--- !u!1 &4532845359041303759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 759973383766986261, guid: da9a7675f8d867e4ea67b6652a79af4b, type: 3}
+  m_PrefabInstance: {fileID: 4532845359041303758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4532845359041303760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4532845359041303759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566f71621cdf13b4dadcfd5868ec5ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLife: 50
+  destroyOnKill: 0
+  _currentLife: 0
 --- !u!1001 &5294017012912503239
 PrefabInstance:
   m_ObjectHideFlags: 0
