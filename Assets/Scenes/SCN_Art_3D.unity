@@ -3293,6 +3293,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1370303517142302658, guid: 1857be670d924b540bc04e6eccb4dc93, type: 3}
   m_PrefabInstance: {fileID: 2746491303338962673}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &527507838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527507832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566f71621cdf13b4dadcfd5868ec5ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLife: 50
+  destroyOnKill: 0
+  _currentLife: 0
+  flashColors: []
 --- !u!1001 &537868306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3431,6 +3447,7 @@ GameObject:
   - component: {fileID: 554641617}
   - component: {fileID: 554641619}
   - component: {fileID: 554641618}
+  - component: {fileID: 554641620}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3450,15 +3467,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140b595763583c3458b03f222d2bb318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 712382237}
-  characterController: {fileID: 554641616}
-  speed: 25
-  turnSpeed: 300
-  gravity: 29.4
-  jumpSpeed: 15
-  vSpeed: 4
-  keyRun: 304
-  speedRun: 2
   flashColors:
   - {fileID: 1988596599}
   - {fileID: 162751369}
@@ -3468,6 +3476,16 @@ MonoBehaviour:
   - {fileID: 1393153970}
   - {fileID: 966458232}
   - {fileID: 1694304189}
+  healthBase: {fileID: 554641620}
+  animator: {fileID: 712382237}
+  characterController: {fileID: 554641616}
+  speed: 25
+  turnSpeed: 300
+  gravity: 29.4
+  jumpSpeed: 15
+  vSpeed: 4
+  keyRun: 304
+  speedRun: 2
 --- !u!4 &554641615
 Transform:
   m_ObjectHideFlags: 0
@@ -3546,6 +3564,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &554641620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554641613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566f71621cdf13b4dadcfd5868ec5ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLife: 10
+  destroyOnKill: 0
+  _currentLife: 0
+  flashColors: []
 --- !u!1001 &555235760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13655,6 +13689,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 613620051}
     m_Modifications:
+    - target: {fileID: 996728642375578337, guid: 1857be670d924b540bc04e6eccb4dc93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.13
+      objectReference: {fileID: 0}
     - target: {fileID: 1370303517142302656, guid: 1857be670d924b540bc04e6eccb4dc93, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -13719,6 +13757,10 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.maxColor.r
       value: 0.8196079
       objectReference: {fileID: 0}
+    - target: {fileID: 7453009861711094663, guid: 1857be670d924b540bc04e6eccb4dc93, type: 3}
+      propertyPath: healthBase
+      value: 
+      objectReference: {fileID: 527507838}
     - target: {fileID: 7453009861711094663, guid: 1857be670d924b540bc04e6eccb4dc93, type: 3}
       propertyPath: lookAtPlayer
       value: 1
@@ -13947,12 +13989,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 110d7025056f5d643b1b4edf47d889b9, type: 2}
     - target: {fileID: 7031856638297895383, guid: da9a7675f8d867e4ea67b6652a79af4b, type: 3}
+      propertyPath: collider
+      value: 
+      objectReference: {fileID: 4532845359041303765}
+    - target: {fileID: 7031856638297895383, guid: da9a7675f8d867e4ea67b6652a79af4b, type: 3}
       propertyPath: healthBase
       value: 
       objectReference: {fileID: 4532845359041303760}
     - target: {fileID: 7031856638297895383, guid: da9a7675f8d867e4ea67b6652a79af4b, type: 3}
+      propertyPath: animationBase
+      value: 
+      objectReference: {fileID: 4532845359041303764}
+    - target: {fileID: 7031856638297895383, guid: da9a7675f8d867e4ea67b6652a79af4b, type: 3}
+      propertyPath: particleSystem
+      value: 
+      objectReference: {fileID: 76297650}
+    - target: {fileID: 7031856638297895383, guid: da9a7675f8d867e4ea67b6652a79af4b, type: 3}
       propertyPath: waypoints.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031856638297895383, guid: da9a7675f8d867e4ea67b6652a79af4b, type: 3}
+      propertyPath: flashColors.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7031856638297895383, guid: da9a7675f8d867e4ea67b6652a79af4b, type: 3}
       propertyPath: waypoints.Array.data[0]
@@ -13966,6 +14024,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[2]
       value: 
       objectReference: {fileID: 155805421}
+    - target: {fileID: 7031856638297895383, guid: da9a7675f8d867e4ea67b6652a79af4b, type: 3}
+      propertyPath: flashColors.Array.data[0]
+      value: 
+      objectReference: {fileID: 4532845359041303763}
     - target: {fileID: 7421663043357401846, guid: da9a7675f8d867e4ea67b6652a79af4b, type: 3}
       propertyPath: m_Name
       value: VFX_Boss
@@ -13992,14 +14054,7 @@ MonoBehaviour:
   startLife: 50
   destroyOnKill: 0
   _currentLife: 0
-  collider: {fileID: 4532845359041303765}
-  flashColor: {fileID: 4532845359041303763}
-  lookAtPlayer: 0
-  particleSystem: {fileID: 76297650}
-  animationBase: {fileID: 4532845359041303764}
-  startAnimationDuration: 0.2
-  startAnimationEase: 27
-  startwithBornAnimation: 1
+  flashColors: []
 --- !u!114 &4532845359041303763 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 759973383766986248, guid: da9a7675f8d867e4ea67b6652a79af4b, type: 3}

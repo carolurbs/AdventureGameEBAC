@@ -95,7 +95,7 @@ public class EnemyBase : MonoBehaviour,IDamageable
             Player p =collision.transform.GetComponent<Player>();
             if (p != null)
             {
-                p.Damage(1);
+                p.Damage(healthBase);
             }
      
         }

@@ -19,11 +19,5 @@ public class EnemyTrigger : MonoBehaviour
         }
 
     }
-    public void OnTriggerExit(Collider collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            enemyType.SetActive(false);
-        }
-    }
+   
 }
