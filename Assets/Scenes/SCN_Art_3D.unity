@@ -3467,6 +3467,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140b595763583c3458b03f222d2bb318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colliders:
+  - {fileID: 554641616}
+  - {fileID: 554641618}
   flashColors:
   - {fileID: 1988596599}
   - {fileID: 162751369}
@@ -3484,6 +3487,7 @@ MonoBehaviour:
   gravity: 29.4
   jumpSpeed: 15
   vSpeed: 4
+  _alive: 1
   keyRun: 304
   speedRun: 2
 --- !u!4 &554641615

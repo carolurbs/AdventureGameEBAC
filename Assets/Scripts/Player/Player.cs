@@ -8,6 +8,7 @@ using Ebac.StateMachine;
 
 public class Player : Singleton<Player>
 {
+    public List<Collider> colliders;
 
     public List<FlashColor> flashColors;
     public HealthBase healthBase;
@@ -18,6 +19,7 @@ public class Player : Singleton<Player>
     public float gravity = -9.8f;
     public float jumpSpeed = 15f;
     public float vSpeed = 4f;
+    public bool _alive = true;
     [Header("Run Setup")]
     public KeyCode keyRun = KeyCode.LeftShift;
     public float speedRun = 40f;
@@ -30,6 +32,7 @@ public class Player : Singleton<Player>
     {
         OnValidate();
         healthBase.OnDamage += Damage;
+        healthBase.OnKill += OnKill;
     }
 
 
@@ -105,11 +108,22 @@ public class Player : Singleton<Player>
 
         animator.SetBool("Run", isWalking);
     }
+    #region LIFE
     public void Damage (HealthBase h)
     {
         flashColors.ForEach(i => i.Flash());
 
     }
+    private void OnKill(HealthBase h)
+    {
+        if(_alive)
+        {
+            _alive = false;
+            animator.SetTrigger("Death");
+            colliders.ForEach(i=> i.enabled = false);
+        }
+    }
+    #endregion
 }
 namespace PlayerStates
 {
