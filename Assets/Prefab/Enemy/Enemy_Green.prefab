@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6631460151732436910}
   - component: {fileID: 6631460151732436911}
   - component: {fileID: 5890993509441611881}
+  - component: {fileID: 2478862154470153062}
   m_Layer: 0
   m_Name: Enemy_Green
   m_TagString: Untagged
@@ -85,6 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 4390312961648437025}
+  skinnedMeshRenderer: {fileID: 0}
   color: {r: 1, g: 0, b: 0, a: 1}
   duration: 0.1
 --- !u!54 &6631460151732436911
@@ -116,9 +118,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 6631460151732436908}
+  healthBase: {fileID: 0}
   flashColor: {fileID: 6631460151732436910}
   startLife: 10
   _currentLife: 0
+  lookAtPlayer: 0
   particleSystem: {fileID: 1187823275525657499}
   animationBase: {fileID: 6631460151732436909}
   startAnimationDuration: 0.2
@@ -130,6 +134,22 @@ MonoBehaviour:
   - {fileID: 0}
   minDistance: 1
   speed: 9
+--- !u!114 &2478862154470153062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6631460151732436905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566f71621cdf13b4dadcfd5868ec5ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLife: 50
+  destroyOnKill: 0
+  _currentLife: 0
+  flashColors: []
 --- !u!1001 &6631460150982201755
 PrefabInstance:
   m_ObjectHideFlags: 0

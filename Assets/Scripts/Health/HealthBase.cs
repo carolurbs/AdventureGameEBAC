@@ -10,7 +10,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     public Action<HealthBase> OnDamage;
     public Action<HealthBase> OnKill;
     public List<FlashColor> flashColors;
-
+    public UIGunUpdater uiGunUpdater;
     private void Awake()
     {
 
@@ -39,7 +39,6 @@ public class HealthBase : MonoBehaviour, IDamageable
 
     }
    
-    [NaughtyAttributes.Button]
     public void Damage(GameObject gameObject)
     {
         Damage(5);
@@ -52,6 +51,7 @@ public class HealthBase : MonoBehaviour, IDamageable
         {
             Kill();
         }
+        UpdateUI();
         OnDamage?.Invoke(this);
 
     }
@@ -59,5 +59,11 @@ public class HealthBase : MonoBehaviour, IDamageable
     {
         Damage(damage);
     }
-
+    private void UpdateUI()
+    {
+        if(uiGunUpdater!=null)
+        {
+            uiGunUpdater.UpdateValue((float) _currentLife/startLife);
+        }
+    }
 }
