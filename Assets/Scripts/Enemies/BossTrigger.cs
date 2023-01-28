@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ebac.StateMachine;
-public class EnemyTrigger : MonoBehaviour
+using Boss;
+public class BossTrigger : MonoBehaviour
 {
     public GameObject enemyType;
 
@@ -15,7 +16,8 @@ public class EnemyTrigger : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             enemyType.SetActive(true);
-         
+            BossBase boss = enemyType.GetComponent<BossBase>();
+            boss.SwitchWalk();
         }
 
     }
