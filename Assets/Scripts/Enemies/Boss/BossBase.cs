@@ -31,7 +31,7 @@ namespace Boss
         public int attackAmount = 5;
         public float timeBetweenAttacks = .5f;
         private StateMachine<BossAction> stateMachine;
-        public float speed = 5f;
+        public float speed = 20;
         public List<Transform> waypoints;
         public HealthBase healthBase;
         private Player _player;
@@ -43,10 +43,15 @@ namespace Boss
 
         private void Awake()
         {
-            Init();
             healthBase.OnKill += OnBossKill;
             healthBase.OnDamage+= OnBossDamage;
             if (particleSystem != null) particleSystem.transform.SetParent(null);
+
+        }
+
+        public void BossInitAttack()
+        {
+            Init();
 
         }
         public void Start()
@@ -110,6 +115,7 @@ namespace Boss
             while (Vector3.Distance(transform.position, t.position) > 1f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, t.position, Time.deltaTime * speed);
+
                 yield return new WaitForEndOfFrame();
             }
             onArrive?.Invoke();

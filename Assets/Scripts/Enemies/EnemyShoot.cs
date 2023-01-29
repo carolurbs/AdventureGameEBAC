@@ -13,5 +13,6 @@ public class EnemyShoot : EnemyBase
             base.Init();
             gunBase.StartShoot();
         }
+        
     }
 }

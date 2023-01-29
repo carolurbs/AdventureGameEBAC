@@ -18,6 +18,8 @@ public class BossTrigger : MonoBehaviour
             enemyType.SetActive(true);
             BossBase boss = enemyType.GetComponent<BossBase>();
             boss.SwitchWalk();
+            enemyType.GetComponent<BossBase>().BossInitAttack();
+
         }
 
     }

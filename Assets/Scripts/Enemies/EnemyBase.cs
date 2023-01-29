@@ -23,7 +23,11 @@ public class EnemyBase : MonoBehaviour,IDamageable
         private void Awake()
         {
             if(particleSystem!=null)particleSystem.transform.SetParent(null);
-         Init();
+        }
+        public void InitEnemy()
+
+        {
+             Init();
         }
         public void Start()
         {

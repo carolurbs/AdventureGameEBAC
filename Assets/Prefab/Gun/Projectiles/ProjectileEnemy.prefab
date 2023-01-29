@@ -64,6 +64,8 @@ MonoBehaviour:
   speed: 50
   tagsToHit:
   - Player
+  tagsToMiss:
+  - Enemy
 --- !u!96 &1287667839122728526
 TrailRenderer:
   serializedVersion: 2

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ebac.StateMachine;
+using Enemy;
 public class EnemyTrigger : MonoBehaviour
 {
     public GameObject enemyType;
@@ -15,6 +16,7 @@ public class EnemyTrigger : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             enemyType.SetActive(true);
+            enemyType.GetComponent<EnemyBase>().InitEnemy();
          
         }
 
