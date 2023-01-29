@@ -121,9 +121,32 @@ public class Player : Singleton<Player>
             _alive = false;
             animator.SetTrigger("Death");
             colliders.ForEach(i=> i.enabled = false);
+            Invoke(nameof(Revive), 3f);
         }
     }
+    public void TurnOnColliders()
+    {
+        colliders.ForEach(i => i.enabled = true);
+
+    }
     #endregion
+    [NaughtyAttributes.Button]
+    public void Respawn()
+    {
+        if(CheckPointManager.Instance.HasCheckPoint())
+        {
+            transform.position=CheckPointManager.Instance.GetPositionToRespawn();
+        }
+    }
+    private void Revive()
+    {
+        _alive=true;
+        healthBase.ResetLife();
+        animator.SetTrigger("Revive");
+        Invoke(nameof(TurnOnColliders), 1f);
+        Respawn();
+       
+    }
 }
 namespace PlayerStates
 {
