@@ -6,16 +6,29 @@ using Boss;
 public class BossTrigger : MonoBehaviour
 {
     public GameObject enemyType;
+    public HealthBase health;
+    public bool activeEnemy;
 
-    public void Awake()
+
+    public void Update()
     {
-        enemyType.SetActive(false);
+        ActiveEnemy();
     }
+
+    public void ActiveEnemy()
+    {
+        if (activeEnemy)
+            enemyType.SetActive(true);
+        else if
+            (!activeEnemy)
+            enemyType.SetActive(false);
+    }
+
     public void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            enemyType.SetActive(true);
+            activeEnemy = true;
             BossBase boss = enemyType.GetComponent<BossBase>();
             boss.SwitchWalk();
             enemyType.GetComponent<BossBase>().BossInitAttack();
@@ -23,5 +36,12 @@ public class BossTrigger : MonoBehaviour
         }
 
     }
-   
+    public void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            health.ResetLife();
+        }
+
+    }
 }
