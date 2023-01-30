@@ -139,6 +139,7 @@ public class Player : Singleton<Player>
         {
             flashColors.ForEach(i => i.Flash());
             VFXManager.Instance.ChangeVignette();
+            ScreenShake.Instance.ShakeCamera();
             healthBase.Damage(5);
         }
     }
