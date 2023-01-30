@@ -94,7 +94,7 @@ public class EnemyBase : MonoBehaviour,IDamageable
             transform.DOMove(transform.position - dir, .1f);
 
         }
-        private void OnCollisionEnter(Collision collision)
+        protected void OnCollisionEnter(Collision collision)
         {
             Player p =collision.transform.GetComponent<Player>();
             if (p != null)

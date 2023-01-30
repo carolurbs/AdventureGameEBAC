@@ -111,6 +111,7 @@ public class Player : Singleton<Player>
     #region LIFE
     public void Damage (HealthBase h)
     {
+        healthBase.Damage(1);
         flashColors.ForEach(i => i.Flash());
 
     }
@@ -128,6 +129,14 @@ public class Player : Singleton<Player>
     {
         colliders.ForEach(i => i.enabled = true);
 
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Abism"))
+        {
+
+            OnKill(healthBase);
+        }
     }
     #endregion
     [NaughtyAttributes.Button]

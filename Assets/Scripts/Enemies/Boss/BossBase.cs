@@ -124,7 +124,7 @@ namespace Boss
         #region ATTACK 
         public void StartAttack(Action endCallback)
         {
-            StartCoroutine(AttackCoroutine());
+            StartCoroutine(AttackCoroutine(endCallback));
         }
         IEnumerator AttackCoroutine(Action endCallback = null)
         {
