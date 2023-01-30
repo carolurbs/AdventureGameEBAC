@@ -9,7 +9,6 @@ public class HealthBase : MonoBehaviour, IDamageable
     public float _currentLife;
     public Action<HealthBase> OnDamage;
     public Action<HealthBase> OnKill;
-    public List<FlashColor> flashColors;
     public UIGunUpdater uiGunUpdater;
     private void Awake()
     {
@@ -46,7 +45,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     public void Damage(float f)
     {
 
-        _currentLife = -f;
+        _currentLife -= f;
         if (_currentLife <= 0)
         {
             Kill();
@@ -65,5 +64,10 @@ public class HealthBase : MonoBehaviour, IDamageable
         {
             uiGunUpdater.UpdateValue((float) _currentLife/startLife);
         }
+    }
+
+    internal void Damage(object damage)
+    {
+        throw new NotImplementedException();
     }
 }

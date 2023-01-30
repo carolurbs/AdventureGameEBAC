@@ -137,9 +137,9 @@ public class Player : Singleton<Player>
         }
         if (collision.gameObject.CompareTag("Enemy"))
         {
-
+            flashColors.ForEach(i => i.Flash());
             VFXManager.Instance.ChangeVignette();
-            healthBase.Damage(1);
+            healthBase.Damage(5);
         }
     }
     #endregion
