@@ -31,7 +31,7 @@ public class Player : Singleton<Player>
     public virtual void Awake()
     {
         OnValidate();
-        healthBase.OnDamage += Damage;
+      //  healthBase.OnDamage += Damage;
         healthBase.OnKill += OnKill;
     }
 
@@ -109,12 +109,11 @@ public class Player : Singleton<Player>
         animator.SetBool("Run", isWalking);
     }
     #region LIFE
-    public void Damage (HealthBase h)
+    /*public void Damage (HealthBase h)
     {
-        healthBase.Damage(1);
-        flashColors.ForEach(i => i.Flash());
+       Damage(h);
 
-    }
+    }*/
     private void OnKill(HealthBase h)
     {
         if(_alive)
@@ -136,6 +135,10 @@ public class Player : Singleton<Player>
         {
 
             OnKill(healthBase);
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            healthBase.Damage(1);
         }
     }
     #endregion

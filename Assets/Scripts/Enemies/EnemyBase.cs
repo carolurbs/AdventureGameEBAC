@@ -94,15 +94,7 @@ public class EnemyBase : MonoBehaviour,IDamageable
             transform.DOMove(transform.position - dir, .1f);
 
         }
-        protected void OnCollisionEnter(Collision collision)
-        {
-            Player p =collision.transform.GetComponent<Player>();
-            if (p != null)
-            {
-                p.Damage(healthBase);
-            }
-     
-        }
+      
 
         public virtual void Update()
         {
