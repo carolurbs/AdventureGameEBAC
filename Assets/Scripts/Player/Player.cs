@@ -133,11 +133,12 @@ public class Player : Singleton<Player>
     {
         if (collision.gameObject.CompareTag("Abism"))
         {
-
-            OnKill(healthBase);
+            Revive();
         }
         if (collision.gameObject.CompareTag("Enemy"))
         {
+
+            VFXManager.Instance.ChangeVignette();
             healthBase.Damage(1);
         }
     }
