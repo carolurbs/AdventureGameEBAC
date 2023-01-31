@@ -6,7 +6,7 @@ using Cinemachine;
 public class ScreenShake : Singleton<ScreenShake>
 {
     public CinemachineVirtualCamera cinemachine;
-    public float shakeTime;
+    public float shakeTime=.1f;
     private CinemachineBasicMultiChannelPerlin c;
     [Header("Shake Values")]
     public float frequency = 3f;
@@ -27,7 +27,7 @@ public class ScreenShake : Singleton<ScreenShake>
 
         shakeTime = time; 
     }
-    private void Update()
+    protected virtual void Update()
     {
         if(shakeTime>0)
         {
