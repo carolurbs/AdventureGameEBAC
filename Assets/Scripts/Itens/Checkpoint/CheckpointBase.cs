@@ -7,7 +7,7 @@ public class CheckpointBase : MonoBehaviour
     public MeshRenderer meshRenderer;
     public int key = 01;
     private string checkpointKey = "CheckPointKey";
-    private bool checkPointActivated=false;
+ [SerializeField]   private bool checkPointActivated=false;
 
     public void Awake()
     {

@@ -66,6 +66,7 @@ MonoBehaviour:
   - Player
   tagsToMiss:
   - Enemy
+  - DestructableItem
 --- !u!96 &1287667839122728526
 TrailRenderer:
   serializedVersion: 2

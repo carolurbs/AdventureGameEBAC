@@ -123,12 +123,17 @@ public class Player : Singleton<Player>
         colliders.ForEach(i => i.enabled = true);
 
     }
-    private void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Abism"))
         {
-            Revive();
+            Respawn();
+
         }
+    }
+        private void OnCollisionEnter(Collision collision)
+    {
+       
         if (collision.gameObject.CompareTag("Enemy"))
         {
             flashColors.ForEach(i => i.Flash());

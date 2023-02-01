@@ -159,6 +159,7 @@ MonoBehaviour:
   speed: 50
   tagsToHit:
   - Enemy
+  - DestructableItem
   tagsToMiss:
   - Player
 --- !u!96 &5245218390654337254
