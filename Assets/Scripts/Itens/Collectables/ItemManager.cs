@@ -40,7 +40,7 @@ public class ItemManager : Singleton<ItemManager>
     }
         public void RemoveByType(ItemType itemType, int amount =1)
         {
-            if (amount > 0) return;
+            if (amount <= 0) return;
 
             var item = ItemSetups.Find(i => i.itemType == itemType);
             item.soInt.value -= amount;

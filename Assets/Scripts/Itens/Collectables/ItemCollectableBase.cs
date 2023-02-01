@@ -8,7 +8,7 @@ namespace Itens
 public class ItemCollectableBase: MonoBehaviour
 {
         public ItemType itemType;
-
+        public Collider collider;
     public string compareTag = "Player";
     public float timeToHide = 3;
     public GameObject graphicItem;
@@ -17,8 +17,9 @@ public class ItemCollectableBase: MonoBehaviour
     public AudioSource audioSource;*/
     private void Awake()
     {
-    /*    if (_particleSystem != null)   _particleSystem.transform.SetParent(null);
-        if (audioSource != null) audioSource.transform.SetParent(null);*/
+            /*    if (_particleSystem != null)   _particleSystem.transform.SetParent(null);
+                if (audioSource != null) audioSource.transform.SetParent(null);*/
+            collider.enabled = true; 
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -40,6 +41,7 @@ public class ItemCollectableBase: MonoBehaviour
     /* if (_particleSystem != null) _particleSystem.Play();
             if (audioSource != null) audioSource.Play();*/
            ItemManager.Instance.AddByType(itemType);   
+            collider.enabled = false;
     }
 
 }

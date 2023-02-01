@@ -12,6 +12,14 @@ public class ScreenShake : Singleton<ScreenShake>
     public float frequency = 3f;
     public float amplitude = 3f;
     public float time = .3f;
+    
+    new private void Awake()
+    {
+        base.Awake();
+        c = cinemachine.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+
+    }
+
     [NaughtyAttributes.Button]
     public void ShakeCamera()
     {
@@ -21,7 +29,6 @@ public class ScreenShake : Singleton<ScreenShake>
     
     public void Shake(float amplitude, float frequency, float time )
     {
-        c = cinemachine.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         c.m_AmplitudeGain = amplitude;
       c.m_FrequencyGain= frequency;
 

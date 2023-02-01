@@ -26,6 +26,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     {
 
         _currentLife = startLife;
+        UpdateUI();
     }
     public virtual void Kill()
 
