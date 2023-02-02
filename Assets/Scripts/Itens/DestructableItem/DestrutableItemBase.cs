@@ -12,6 +12,9 @@ public class DestrutableItemBase : MonoBehaviour
     public int dropItemAmount = 10;
     public GameObject coinPrefab;
     public Transform dropPosition;
+    public bool _alive = true;
+
+
     public void OnValidate()
     {
         if (healthBase ==null) healthBase =GetComponent<HealthBase>();
@@ -23,13 +26,19 @@ public class DestrutableItemBase : MonoBehaviour
     {
         OnValidate();
         healthBase.OnDamage += OnDamage;
+        healthBase.OnKill += OnKill;
 
     }
+    [NaughtyAttributes.Button]
     private void OnDamage (HealthBase h)
     {
       gameObject.transform.DOShakeScale(shakeDuration, Vector3.up/2, shakeForce);
         flashColors.ForEach(i => i.Flash());
         DropCoins();
+        if(healthBase._currentLife<=0)
+        {
+            OnKill(healthBase);
+        }
 
     }
     [NaughtyAttributes.Button]
@@ -38,5 +47,13 @@ public class DestrutableItemBase : MonoBehaviour
         var i = Instantiate(coinPrefab);
         i.transform.position = transform.position;
         i.transform.DOScale(0, 1f).SetEase(Ease.OutBack).From(); 
+    }
+    [NaughtyAttributes.Button]
+    private void OnKill(HealthBase h)
+    {
+        if (_alive)
+        {
+            _alive = false;
+        }
     }
 }
