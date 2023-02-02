@@ -13,6 +13,7 @@ public class Player : Singleton<Player>
     public List<FlashColor> flashColors;
     public HealthBase healthBase;
     public Animator animator;
+    private bool jumping;
     public CharacterController characterController;
     public float speed = 1f;
     public float turnSpeed = 1f;
@@ -23,7 +24,6 @@ public class Player : Singleton<Player>
     [Header("Run Setup")]
     public KeyCode keyRun = KeyCode.LeftShift;
     public float speedRun = 40f;
-
     public void Start()
     {
         OnValidate();
@@ -76,10 +76,21 @@ public class Player : Singleton<Player>
 
         if (characterController.isGrounded)
         {
+            if(jumping)
+            {
+               jumping=false;
+                animator.SetTrigger("Land");
+            }
             vSpeed = 0;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 vSpeed = jumpSpeed;
+                animator.SetTrigger("Jump");
+                if(!jumping)
+                {
+                    jumping = true;
+                    animator.SetTrigger("Jump");
+                }
             }
         }
         var isWalking = inputAxisVertical != 0;
