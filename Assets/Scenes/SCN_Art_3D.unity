@@ -5584,7 +5584,7 @@ GameObject:
   - component: {fileID: 694784583}
   m_Layer: 0
   m_Name: Tree
-  m_TagString: Untagged
+  m_TagString: DestructableItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
