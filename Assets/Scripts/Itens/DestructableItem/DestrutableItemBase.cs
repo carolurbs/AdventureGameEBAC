@@ -35,10 +35,7 @@ public class DestrutableItemBase : MonoBehaviour
       gameObject.transform.DOShakeScale(shakeDuration, Vector3.up/2, shakeForce);
         flashColors.ForEach(i => i.Flash());
         DropCoins();
-        if(healthBase._currentLife<=0)
-        {
-            OnKill(healthBase);
-        }
+     
 
     }
     [NaughtyAttributes.Button]
