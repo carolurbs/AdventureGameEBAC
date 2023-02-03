@@ -532,6 +532,7 @@ MonoBehaviour:
   destroyOnKill: 0
   _currentLife: 0
   uiGunUpdater: {fileID: 426179949}
+  damageMultiplier: 1
 --- !u!1 &50497373
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,6 +1257,7 @@ MonoBehaviour:
   destroyOnKill: 0
   _currentLife: 0
   uiGunUpdater: {fileID: 2101731199}
+  damageMultiplier: 1
 --- !u!1001 &133542099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4206,6 +4208,7 @@ MonoBehaviour:
   destroyOnKill: 0
   _currentLife: 0
   uiGunUpdater: {fileID: 2126674438}
+  damageMultiplier: 1
 --- !u!1001 &537868306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4485,6 +4488,7 @@ MonoBehaviour:
   destroyOnKill: 0
   _currentLife: 0
   uiGunUpdater: {fileID: 754211586}
+  damageMultiplier: 1
 --- !u!114 &554641621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5767,22 +5771,22 @@ MonoBehaviour:
   clothType: 2
   duration: 2
   compareTag: Player
---- !u!54 &693318278
-Rigidbody:
+--- !u!114 &693318278
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693318275}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6263ab4602601d24496a789a3fe28267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clothType: 2
+  duration: 2
+  compareTag: Player
+  damageMultiplier: 0.5
 --- !u!135 &693318279
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5878,6 +5882,7 @@ MonoBehaviour:
   destroyOnKill: 1
   _currentLife: 0
   uiGunUpdater: {fileID: 0}
+  damageMultiplier: 1
 --- !u!114 &694784582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8279,9 +8284,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 966870222}
-  - component: {fileID: 966870223}
   - component: {fileID: 966870225}
   - component: {fileID: 966870224}
+  - component: {fileID: 966870223}
   m_Layer: 0
   m_Name: ClothesSpeed
   m_TagString: Untagged
@@ -8313,12 +8318,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 966870221}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419df9f0e7bfed744b998575aa920224, type: 3}
+  m_Script: {fileID: 11500000, guid: f5392cc1a3b10834e9884815436fad58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   clothType: 1
   duration: 2
   compareTag: Player
+  targetSpeed: 50
 --- !u!54 &966870224
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18472,6 +18478,7 @@ MonoBehaviour:
   destroyOnKill: 0
   _currentLife: 0
   uiGunUpdater: {fileID: 40088459}
+  damageMultiplier: 1
 --- !u!114 &4532845359041303763 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 759973383766986248, guid: da9a7675f8d867e4ea67b6652a79af4b, type: 3}
