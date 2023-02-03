@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Ebac.Core.Singleton;
 using Ebac.StateMachine;
+using Clothes;
 
 public class Player : Singleton<Player>
 {
@@ -21,11 +22,14 @@ public class Player : Singleton<Player>
     public float jumpSpeed = 15f;
     public float vSpeed = 4f;
     public bool _alive = true;
+    public Transform startposition;
     [Header("Run Setup")]
     public KeyCode keyRun = KeyCode.LeftShift;
     public float speedRun = 40f;
+    public ClothesChange clothsChanger;
     public void Start()
     {
+        transform.position = startposition.position;
         OnValidate();
         healthBase.OnKill += OnKill;
         Init();
@@ -138,8 +142,8 @@ public class Player : Singleton<Player>
     {
         if (collision.gameObject.CompareTag("Abism"))
         {
-            Respawn();
-
+            transform.position = startposition.position;
+            Debug.Log("Freefall");
         }
     }
         private void OnCollisionEnter(Collision collision)
@@ -170,6 +174,28 @@ public class Player : Singleton<Player>
         Invoke(nameof(TurnOnColliders), 1f);
         Respawn();
        
+    }
+     public void ChangeSpeed(float speed, float duration)
+    {
+        StartCoroutine(ChangeSpeedCoroutine(speed, duration));
+    }
+    IEnumerator ChangeSpeedCoroutine(float localSpeed, float duration)
+    {
+        var defaultSpeed = speed;
+        speed = localSpeed; 
+        yield return new WaitForSeconds(duration);
+        speed = defaultSpeed;
+    }
+    public void ChangeTexture(ClothesSetup setup, float duration )
+    {
+        StartCoroutine(ChangeTextureCoroutine(setup, duration));
+
+    }
+    IEnumerator ChangeTextureCoroutine(ClothesSetup setup, float duration)
+    {
+        clothsChanger.ChangeTexture(setup,duration);
+        yield return new WaitForSeconds(duration);
+       clothsChanger.ResetTexture();
     }
 }
 namespace PlayerStates
