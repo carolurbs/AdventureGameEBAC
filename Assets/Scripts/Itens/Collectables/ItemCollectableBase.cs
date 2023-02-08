@@ -7,18 +7,16 @@ namespace Itens
 
 public class ItemCollectableBase: MonoBehaviour
 {
+        public SFXType sfxType;
         public ItemType itemType;
         public Collider collider;
     public string compareTag = "Player";
     public float timeToHide = 3;
     public GameObject graphicItem;
-    //public ParticleSystem _particleSystem;
-    /*[Header("Sounds")]
-    public AudioSource audioSource;*/
+ 
     private void Awake()
     {
-            /*    if (_particleSystem != null)   _particleSystem.transform.SetParent(null);
-                if (audioSource != null) audioSource.transform.SetParent(null);*/
+          
             collider.enabled = true; 
     }
 
@@ -31,6 +29,7 @@ public class ItemCollectableBase: MonoBehaviour
     }
     protected virtual void Collect()
     {
+        PlaySFX();
         Debug.Log("Collect");
       Invoke(nameof(OnCollect), timeToHide);
     }
@@ -38,11 +37,14 @@ public class ItemCollectableBase: MonoBehaviour
     {
     if(graphicItem!=null)  
     graphicItem.SetActive(false);
-    /* if (_particleSystem != null) _particleSystem.Play();
-            if (audioSource != null) audioSource.Play();*/
+
            ItemManager.Instance.AddByType(itemType);   
             collider.enabled = false;
     }
+  private void PlaySFX()
+  {
+    SFX_Pool.Instance.Play(sfxType);
+  }
 
 }
 }

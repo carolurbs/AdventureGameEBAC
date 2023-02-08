@@ -19,17 +19,18 @@ public class SoundManager : Singleton<SoundManager>
     }
     public void PlaSFXByType(SFXType sfxType)
     {
-        var sfx = GetMusicByType(sfxType);
+        var sfx = GetSFXByType(sfxType);
         musicSource.clip = sfx.audioClip;
         musicSource.Play();
     }
-    public SFXSetup GetMusicByType(SFXType sfxType)
+    public SFXSetup GetSFXByType(SFXType sfxType)
     {
         return sfxSetups.Find(i => i.sfxType == sfxType);
     }
 }
 public enum SFXType
 {
+    NONE,
     TYPE01,
     TYPE02,
     TYPE03
