@@ -19414,6 +19414,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056b7656e09490349b8ed9e6a837ee1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _saveSetup:
+    lastLevel: 0
+    playerName: 
+    coins: 0
+    health: 0
+  lastLevel: 0
 --- !u!1001 &1022147207
 PrefabInstance:
   m_ObjectHideFlags: 0
