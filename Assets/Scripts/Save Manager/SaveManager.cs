@@ -1,4 +1,5 @@
 
+using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,16 +8,31 @@ using Ebac.Core.Singleton;
 
 public class SaveManager : Singleton<SaveManager>
 {
-    private SaveSetup _saveSetup;
+   [SerializeField] private SaveSetup _saveSetup;
+    private string _path = Application.streamingAssetsPath + "/save.txt";
+    public int lastLevel;
+    public  Action<SaveSetup> FileLoaded; 
+     public SaveSetup Setup
+    {
+        get { return _saveSetup; }
+    }
     protected override void Awake()
     {
         base.Awake();
+        DontDestroyOnLoad(gameObject);
+        CreateNewSave();
+    }
+    private void CreateNewSave()
+    {
         _saveSetup = new SaveSetup();
-        _saveSetup.lastLevel = 2;
+        _saveSetup.lastLevel = 0;
         _saveSetup.playerName = "Carol";
     }
-   
-    
+    private void Start()
+    {
+        Invoke(nameof(Load),.1f);
+    }
+
     #region SAVE
     private void Save()
     {
@@ -29,6 +45,7 @@ public class SaveManager : Singleton<SaveManager>
     {
         _saveSetup.lastLevel=level;
         Save();
+        SaveItens();
     }
     public void SaveName(string text)
     {
@@ -43,9 +60,34 @@ public class SaveManager : Singleton<SaveManager>
         File.WriteAllText(path, json);  
     }
     [NaughtyAttributes.Button]
+
+    private void Load( )
+    {
+        string fileLoaded = "";
+        if (File.Exists(_path))
+        {
+        fileLoaded = File.ReadAllText(_path);
+        _saveSetup=JsonUtility.FromJson<SaveSetup>(fileLoaded);
+        lastLevel = _saveSetup.lastLevel;  
+        
+        }
+        else
+        {
+            CreateNewSave();
+            Save();
+        }
+        FileLoaded.Invoke(_saveSetup);
+}
+    [NaughtyAttributes.Button]
     private void SaveLevelOne()
     {
         SaveLastLevel(1);
+    }
+    public void SaveItens()
+    {
+        _saveSetup.coins = Itens.ItemManager.Instance.GetItemByType(Itens.ItemType.COIN).soInt.value ;
+        _saveSetup.health = Itens.ItemManager.Instance.GetItemByType(Itens.ItemType.LIFE_PACK).soInt.value;
+        Save();
     }
 }
 [System.Serializable]
@@ -53,5 +95,7 @@ public class SaveSetup
 {
     public int lastLevel;
     public string playerName;
+    public float coins;
+    public float health;
 
 }

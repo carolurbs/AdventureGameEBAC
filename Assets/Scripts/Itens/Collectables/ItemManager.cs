@@ -20,9 +20,16 @@ public class ItemManager : Singleton<ItemManager>
     {
         base.Awake();
         Reset();
+            LoadItensFromLastSave();
 
     }
-    private void Reset()
+        private void LoadItensFromLastSave()
+        {
+            AddByType(ItemType.COIN,(int)SaveManager.Instance.Setup.coins);
+            AddByType(ItemType.LIFE_PACK, (int)SaveManager.Instance.Setup.health);
+
+        }
+        private void Reset()
     {
             foreach(var i  in ItemSetups )
             {

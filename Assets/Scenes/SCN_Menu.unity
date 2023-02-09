@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 207027022}
   - component: {fileID: 207027021}
   - component: {fileID: 207027020}
+  - component: {fileID: 207027023}
   m_Layer: 5
   m_Name: 'QuitButton '
   m_TagString: Untagged
@@ -328,7 +329,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 207027021}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 207027023}
+        m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &207027021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,6 +380,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207027018}
   m_CullTransparentMesh: 1
+--- !u!114 &207027023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207027018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4d69267cad1eb468e094104258793a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &282058844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,7 +1032,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777961280}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45, y: -6, z: 0}
+  m_LocalPosition: {x: 45.7, y: -10, z: 0}
   m_LocalScale: {x: 2.3629065, y: 1.845444, z: 1.845444}
   m_Children: []
   m_Father: {fileID: 1233842584}
@@ -1374,6 +1399,7 @@ GameObject:
   - component: {fileID: 902690059}
   - component: {fileID: 902690058}
   - component: {fileID: 902690057}
+  - component: {fileID: 902690060}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -1444,7 +1470,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 902690058}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 902690060}
+        m_TargetAssemblyTypeName: LoadSceneHelper, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &902690058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1483,6 +1521,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902690055}
   m_CullTransparentMesh: 1
+--- !u!114 &902690060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902690055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42cf168d624673744acb2b48d5ef8ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &913452762
 GameObject:
   m_ObjectHideFlags: 0
@@ -2597,7 +2647,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1199613494}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -48.9, y: -5.1, z: 0}
+  m_LocalPosition: {x: -49.2, y: -10.9, z: 0}
   m_LocalScale: {x: 1.845444, y: 1.845444, z: 1.845444}
   m_Children: []
   m_Father: {fileID: 1233842584}
@@ -3914,7 +3964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690147322}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -80.1, y: -8.1, z: 0}
+  m_LocalPosition: {x: -80.9, y: -14.4, z: 0}
   m_LocalScale: {x: 1.845444, y: 1.845444, z: 1.845444}
   m_Children: []
   m_Father: {fileID: 1233842584}
@@ -4078,7 +4128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705320126}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.1, y: -5.6552, z: 0}
+  m_LocalPosition: {x: -18.2, y: -14, z: 0}
   m_LocalScale: {x: 1.1152519, y: 1.1152519, z: 1.1152519}
   m_Children: []
   m_Father: {fileID: 1233842584}

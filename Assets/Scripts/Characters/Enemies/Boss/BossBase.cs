@@ -5,6 +5,7 @@ using UnityEngine;
 using Ebac.StateMachine;
 using DG.Tweening;
 using AnimationManager;
+using UnityEngine.Events;
 
 
 namespace Boss
@@ -40,7 +41,8 @@ namespace Boss
         [Header("Death")]
         public ParticleSystem particleSystem;
         public Collider collider;
-
+        [Header("Events")]
+        public UnityEvent onKillEvent;
         private void Awake()
         {
             healthBase.OnKill += OnBossKill;
@@ -152,6 +154,7 @@ namespace Boss
         #region DEATH
         private void OnBossKill(HealthBase h)
         {
+            onKillEvent?.Invoke();  
             SwitchState(BossAction.DEATH);
         }
         public void OnBossDamage(HealthBase h)
