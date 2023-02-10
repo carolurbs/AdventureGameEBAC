@@ -14,6 +14,12 @@ namespace Clothes
 public class ClothesManager : Singleton<ClothesManager>
 {
         public List<ClothesSetup> clothesSetups;
+
+        private void LoadItensFromLastSave()
+        {
+            GetSetupByType( clothType ) ;
+
+        }
         public ClothesSetup GetSetupByType(ClothType cloth)
         {
             return clothesSetups.Find(i => i.clothType == cloth);   
