@@ -13,6 +13,8 @@ public class HealthBase : MonoBehaviour, IDamageable
     public Action<HealthBase> OnKill;
     public UIGunUpdater uiGunUpdater;
     public float damageMultiplier = 1;
+    public ClothType? activeClothType = null;
+
     private void Awake()
     {
 
@@ -81,8 +83,11 @@ public class HealthBase : MonoBehaviour, IDamageable
     }
     IEnumerator ChangeForceCoroutine(float damageMultiplier , float duration)
     {
+        activeClothType = ClothType.FORCE;
         this.damageMultiplier = damageMultiplier;
         yield return new WaitForSeconds(duration);
         this.damageMultiplier = 1;
-            }
+        activeClothType = null;
+
+    }
 }

@@ -87,15 +87,15 @@ public class SaveManager : Singleton<SaveManager>
     {
         _saveSetup.coins = Itens.ItemManager.Instance.GetItemByType(Itens.ItemType.COIN).soInt.value ;
         _saveSetup.health = Itens.ItemManager.Instance.GetItemByType(Itens.ItemType.LIFE_PACK).soInt.value;
-        _saveSetup.color = ClothesManager.Instance.GetSetupByType(ClothType.COLOR).clothType;
-        _saveSetup.speed = ClothesManager.Instance.GetSetupByType(ClothType.SPEED).clothType;
-        _saveSetup.force = ClothesManager.Instance.GetSetupByType(ClothType.FORCE).clothType;
+        _saveSetup.activeCloth = Player.Instance.activeClothType;
 
         Save();
     }
 public void SaveCheckPoints()
 {
-        CheckPointManager.Instance.SaveCheckPoint(int i) ;
+        CheckPointManager.Instance.SaveCheckPoint(_saveSetup.key) ;
+        Debug.Log(_saveSetup.key);
+        Save();
 }
 }
 [System.Serializable]
@@ -105,9 +105,7 @@ public class SaveSetup
     public string playerName;
     public float coins;
     public float health;
-    public ClothType color;
-    public ClothType speed;
-    public ClothType force;
     public int key;
+    public ClothType? activeCloth = null;
 
 }

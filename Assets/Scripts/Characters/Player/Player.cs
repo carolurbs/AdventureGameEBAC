@@ -27,6 +27,7 @@ public class Player : Singleton<Player>
     public KeyCode keyRun = KeyCode.LeftShift;
     public float speedRun = 40f;
     public ClothesChange clothsChanger;
+    public ClothType? activeClothType = null;
     public void Start()
     {
         transform.position = startposition.position;
@@ -181,10 +182,12 @@ public class Player : Singleton<Player>
     }
     IEnumerator ChangeSpeedCoroutine(float localSpeed, float duration)
     {
+        activeClothType = ClothType.SPEED;
         var defaultSpeed = speed;
         speed = localSpeed; 
         yield return new WaitForSeconds(duration);
         speed = defaultSpeed;
+        activeClothType = null;
     }
     public void ChangeTexture(ClothesSetup setup, float duration )
     {
@@ -193,9 +196,11 @@ public class Player : Singleton<Player>
     }
     IEnumerator ChangeTextureCoroutine(ClothesSetup setup, float duration)
     {
+        activeClothType = ClothType.COLOR;
         clothsChanger.ChangeTexture(setup,duration);
         yield return new WaitForSeconds(duration);
        clothsChanger.ResetTexture();
+        activeClothType=null;
     }
 }
 namespace PlayerStates

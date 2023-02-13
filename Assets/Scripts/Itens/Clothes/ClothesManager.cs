@@ -17,7 +17,8 @@ public class ClothesManager : Singleton<ClothesManager>
 
         private void LoadItensFromLastSave()
         {
-            GetSetupByType( clothType ) ;
+           // clothesSetups.clothType = SaveManager.Instance.Setup.activeCloth;
+           // GetSetupByType(SaveManager.Instance.Setup.activeCloth; ) ;
 
         }
         public ClothesSetup GetSetupByType(ClothType cloth)
