@@ -7,11 +7,16 @@ namespace Clothes
 
 public class ClothItemForce : ClothItemBase
 {
-        public float damageMultiplier=.5f;
         public override void Collect()
         {
             base.Collect();
-            Player.Instance.healthBase.ChangeForce(damageMultiplier, duration);
+            Player.Instance.healthBase.ChangeForce(((ClothParametersForce)clothParameters).damageMultiplier, clothParameters.duration);
+        }
+
+        public static void ApplyForcePowerUP(Player p, float damageMultiplier, float duration)
+        {
+
+            p.healthBase.ChangeForce(damageMultiplier, duration);   
         }
     }
 }

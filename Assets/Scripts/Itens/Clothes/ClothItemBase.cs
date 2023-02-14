@@ -6,9 +6,8 @@ namespace Clothes
 {
 public class ClothItemBase : MonoBehaviour
 {
-public ClothType clothType;
-        public float duration = 2f;
- public string compareTag = "Player";
+        public ClothParameterBase clothParameters;
+        public string compareTag = "Player";
         private void OnTriggerEnter(Collider collision)
         {
             if (collision.transform.CompareTag(compareTag))
@@ -20,8 +19,8 @@ public ClothType clothType;
         {
             HideObject();
             Debug.Log("Collect");
-           var setup=  ClothesManager.Instance.GetSetupByType(clothType);
-            Player.Instance.clothsChanger.ChangeTexture(setup, duration);
+           var setup=  ClothesManager.Instance.GetSetupByType(clothParameters.clothType);
+            Player.Instance.clothsChanger.ChangeTexture(setup,clothParameters.duration);
         }
         private void HideObject()
         {
