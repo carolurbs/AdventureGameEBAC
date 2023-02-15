@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3121e05c0ae8e404cb173ac72731ed85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 5717171200636381469, guid: f0b84b6462fc4644d9da7e617d62548f, type: 3}
   prefabProjectille: {fileID: 895784189898699743, guid: bfadc7f9669d27647b29ffbd5f4d9d86, type: 3}
   positionToShoot: {fileID: 6196414334964217639}
   timeBetweenShoot: 0.3

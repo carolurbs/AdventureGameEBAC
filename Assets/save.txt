@@ -2,5 +2,6 @@
     "lastLevel": 0,
     "playerName": "Carol",
     "coins": 0.0,
-    "health": 0.0
+    "health": 0.0,
+    "key": 0
 }

@@ -7,7 +7,7 @@ namespace Itens
 
 public class ItemCollectableBase: MonoBehaviour
 {
-        public SFXType sfxType;
+        public AudioSource sfx;
         public ItemType itemType;
         public Collider collider;
     public string compareTag = "Player";
@@ -43,7 +43,7 @@ public class ItemCollectableBase: MonoBehaviour
     }
   private void PlaySFX()
   {
-    SFX_Pool.Instance.Play(sfxType);
+           if(sfx!=null) sfx.Play();
   }
 
 }

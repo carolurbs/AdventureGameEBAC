@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CheckpointBase : MonoBehaviour
 {
+    public AudioSource sfx;
     public MeshRenderer meshRenderer;
     public int key = 01;
     private string checkpointKey = "CheckPointKey";
@@ -36,6 +37,7 @@ public class CheckpointBase : MonoBehaviour
     private void TurnitOn()
     {
         meshRenderer.material.SetColor("_EmissionColor", Color.white);
+        if(sfx != null) sfx.Play();
     }
     private void SaveCheckpoint()
     {

@@ -6,6 +6,8 @@ using DG.Tweening;
 public class ChestBase : MonoBehaviour
 {
     public KeyCode keyCode = KeyCode.Z;
+    public AudioSource sfxOpen;
+    public AudioSource sfxClose;
     public Animator animator;
     public string triggerOpen = "Open";
     public string triggerClose= "Close";
@@ -31,6 +33,7 @@ public class ChestBase : MonoBehaviour
                OpenChest();
                 isOpen = true;
                 Invoke(nameof(ShowItem),.5f); 
+
             }
             else
             {
@@ -39,6 +42,7 @@ public class ChestBase : MonoBehaviour
 
             }
             HideNotification();
+
         }
     }
     private void  ShowItem()
@@ -55,13 +59,14 @@ public class ChestBase : MonoBehaviour
   private  void OpenChest()
     {
         animator.SetTrigger(triggerOpen);
+        if(sfxOpen != null) sfxOpen.Play();
     }
     [NaughtyAttributes.Button]
     private void CloseChest()
     {
 
             animator.SetTrigger(triggerClose);
-
+        if(sfxClose !=null) sfxClose?.Play();
     }
 
     public void OnTriggerEnter(Collider other)
