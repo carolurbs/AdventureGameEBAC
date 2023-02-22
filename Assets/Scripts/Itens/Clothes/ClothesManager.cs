@@ -24,8 +24,8 @@ public class ClothesManager : Singleton<ClothesManager>
              if(SaveManager.Instance.Setup.activeCloth !=null)
             {
 
-                float duration = ApplyPowerUpOnPlayer(SaveManager.Instance.Setup.activeCloth.value) ;
-                var setup = GetSetupByType(SaveManager.Instance.Setup.activeCloth.value);
+                float duration = ApplyPowerUpOnPlayer(SaveManager.Instance.Setup.activeCloth.Value) ;
+                var setup = GetSetupByType(SaveManager.Instance.Setup.activeCloth.Value);
                 Player.Instance.clothsChanger.ChangeTexture(setup,duration);
             }
         }
@@ -60,9 +60,9 @@ public class ClothesManager : Singleton<ClothesManager>
                     ClothParameterSpeed s = (ClothParameterSpeed)parameters;
                     ClothItemSpeed.ApplySpeedPowerUP(Player.Instance, s.targetSpeed, s.duration);
                     return s.duration;
-                    default:
+                
+                     default:
                     Debug.LogError("Don't know the given coth type" + clothType);
-                    
             }
         }
 }
