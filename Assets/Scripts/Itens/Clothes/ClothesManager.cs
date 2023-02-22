@@ -15,16 +15,25 @@ public class ClothesManager : Singleton<ClothesManager>
 {
         public List<ClothesSetup> clothesSetups;
         public List<ClothParameterBase> clothParameters;
-
-        private void LoadItensFromLastSave()
+        public void Start()
         {
-           //ApplyPowerUpOnPlayer(clothParameters);
+            LoadItensFromLastSave();
+        }
+        private  void LoadItensFromLastSave()
+        {
+             if(SaveManager.Instance.Setup.activeCloth !=null)
+            {
+
+                float duration = ApplyPowerUpOnPlayer(SaveManager.Instance.Setup.activeCloth.value) ;
+                var setup = GetSetupByType(SaveManager.Instance.Setup.activeCloth.value);
+                Player.Instance.clothsChanger.ChangeTexture(setup,duration);
+            }
         }
         public ClothesSetup GetSetupByType(ClothType cloth)
         {
             return clothesSetups.Find(i => i.clothType == cloth);   
         }
-        public void ApplyPowerUpOnPlayer(ClothType clothType)
+        public  void ApplyPowerUpOnPlayer(ClothType clothType)
         {
             ClothParameterBase parameters = null; 
             for(int i = 0; i < clothParameters.Count; i++)
@@ -39,18 +48,21 @@ public class ClothesManager : Singleton<ClothesManager>
            if(parameters==null)
             {
                 Debug.LogError("Couldn't find the given cloth type on the parameters list:"+ clothType);
-                return;
+                return-1;
             }
            switch (clothType)
             {
                 case ClothType.FORCE:
                     ClothParametersForce f =(ClothParametersForce)parameters;
                     ClothItemForce.ApplyForcePowerUP(Player.Instance, f.damageMultiplier,f.duration);
-                    break;
+                    return f.duration;
                     case ClothType.SPEED:
                     ClothParameterSpeed s = (ClothParameterSpeed)parameters;
                     ClothItemSpeed.ApplySpeedPowerUP(Player.Instance, s.targetSpeed, s.duration);
-                    break;
+                    return s.duration;
+                    default:
+                    Debug.LogError("Don't know the given coth type" + clothType);
+                    
             }
         }
 }
