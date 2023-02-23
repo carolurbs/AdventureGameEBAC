@@ -33,7 +33,7 @@ public class ClothesManager : Singleton<ClothesManager>
         {
             return clothesSetups.Find(i => i.clothType == cloth);   
         }
-        public  void ApplyPowerUpOnPlayer(ClothType clothType)
+        public  float ApplyPowerUpOnPlayer(ClothType clothType)
         {
             ClothParameterBase parameters = null; 
             for(int i = 0; i < clothParameters.Count; i++)
@@ -56,13 +56,14 @@ public class ClothesManager : Singleton<ClothesManager>
                     ClothParametersForce f =(ClothParametersForce)parameters;
                     ClothItemForce.ApplyForcePowerUP(Player.Instance, f.damageMultiplier,f.duration);
                     return f.duration;
+
                     case ClothType.SPEED:
                     ClothParameterSpeed s = (ClothParameterSpeed)parameters;
                     ClothItemSpeed.ApplySpeedPowerUP(Player.Instance, s.targetSpeed, s.duration);
                     return s.duration;
-                
-                     default:
+                default:
                     Debug.LogError("Don't know the given coth type" + clothType);
+                    return -1;
             }
         }
 }
