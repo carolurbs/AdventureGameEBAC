@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(FSMExample))]
 public class StateMachineEditor : Editor
 {
@@ -34,3 +34,4 @@ public class StateMachineEditor : Editor
         }
     }
 }
+#endif
