@@ -11,7 +11,7 @@ public class Player : Singleton<Player>
 {
     public List<Collider> colliders;
 
-    public List<FlashColor> flashColors;
+    public List<PlayerFlashColor> flashColors;
     public HealthBase healthBase;
     public Animator animator;
     private bool jumping;

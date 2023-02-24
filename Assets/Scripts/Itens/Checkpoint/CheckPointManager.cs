@@ -15,6 +15,8 @@ public class CheckPointManager : Singleton<CheckPointManager>
         if(lastChackPointKey < i)
         {
             lastChackPointKey = i;
+            SaveManager.Instance.SaveCheckPoints(lastChackPointKey);
+            SaveManager.Instance.SaveItens();
         }
     }
     public Vector3 GetPositionToRespawn()

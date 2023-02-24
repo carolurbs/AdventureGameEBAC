@@ -11,7 +11,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     public float _currentLife;
     public Action<HealthBase> OnDamage;
     public Action<HealthBase> OnKill;
-    public UIGunUpdater uiGunUpdater;
+    public UIUpdater uiUpdater;
     public float damageMultiplier = 1;
     public ClothType? activeClothType = null;
 
@@ -66,9 +66,9 @@ public class HealthBase : MonoBehaviour, IDamageable
     }
     private void UpdateUI()
     {
-        if(uiGunUpdater!=null)
+        if(uiUpdater!=null)
         {
-            uiGunUpdater.UpdateValue((float) _currentLife/startLife);
+            uiUpdater.UpdateValue((float) _currentLife/startLife);
         }
     }
 

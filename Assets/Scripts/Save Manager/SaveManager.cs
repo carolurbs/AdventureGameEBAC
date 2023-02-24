@@ -56,7 +56,7 @@ public class SaveManager : Singleton<SaveManager>
     [NaughtyAttributes.Button]
     private void SaveFile(string json)
     {
-        string path = Application.dataPath + "/save.txt";
+        string path = Application.persistentDataPath + "/save.txt";
         File.WriteAllText(path, json);  
     }
     [NaughtyAttributes.Button]
@@ -91,9 +91,9 @@ public class SaveManager : Singleton<SaveManager>
         
         Save();
     }
-public void SaveCheckPoints()
+public void SaveCheckPoints(int key)
 {
-        CheckPointManager.Instance.SaveCheckPoint(_saveSetup.key) ;
+        _saveSetup.key = key;
         Debug.Log(_saveSetup.key);
         Save();
 }

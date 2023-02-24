@@ -139,12 +139,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911ecdfd52f928f42b4763391b41a9bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx: {fileID: 5717171200636381469, guid: f0b84b6462fc4644d9da7e617d62548f, type: 3}
   prefabProjectille: {fileID: 895784189898699743, guid: bfadc7f9669d27647b29ffbd5f4d9d86, type: 3}
   positionToShoot: {fileID: 4777136832535824997}
   timeBetweenShoot: 0.3
   speed: 50
-  UIGunUpdaters: []
+  UIGunUpdaters:
+  - {fileID: 7479809857181234189, guid: 5902b9652fe0f994987671869665711e, type: 3}
   maxShoot: 5
   timeToRecharge: 1
   _recharging: 0
