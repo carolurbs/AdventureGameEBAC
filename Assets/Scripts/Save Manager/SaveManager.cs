@@ -19,6 +19,7 @@ public class SaveManager : Singleton<SaveManager>
     protected override void Awake()
     {
         base.Awake();
+        _path = Path.Combine(Application.persistentDataPath, "save.txt");
         DontDestroyOnLoad(gameObject);
         CreateNewSave();
     }
@@ -76,7 +77,7 @@ public class SaveManager : Singleton<SaveManager>
             CreateNewSave();
             Save();
         }
-        FileLoaded.Invoke(_saveSetup);
+        FileLoaded?.Invoke(_saveSetup);
 }
     [NaughtyAttributes.Button]
     private void SaveLevelOne()
